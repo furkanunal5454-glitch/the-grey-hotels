@@ -1,0 +1,2847 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Grey Hotel - Sakarya'nın kalbinde lüks ve konforlu konaklama deneyimi. Modern odalar, kahvaltı ve Wi-Fi ile misafirlerimizi ağırlıyoruz.">
+    <meta name="keywords" content="The Grey Hotel, Sakarya otel, Serdivan otel, lüks konaklama, Sapanca yakını otel">
+    <title>The Grey Hotel | Sakarya'da Lüks Konaklama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-black: #0a0a0a;
+            --color-dark: #1a1a1a;
+            --color-anthracite: #2d2d2d;
+            --color-charcoal: #3a3a3a;
+            --color-gray: #6b6b6b;
+            --color-silver: #a8a8a8;
+            --color-light-silver: #c0c0c0;
+            --color-off-white: #e8e8e8;
+            --color-white: #f5f5f5;
+            --color-pure-white: #ffffff;
+            --color-accent: #b8a88a;
+            --color-accent-dark: #9a8a6a;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.25);
+            --shadow-strong: 0 12px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-black);
+            color: var(--color-off-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-charcoal);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-gray);
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-pure-white);
+            margin-bottom: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-pure-white), var(--color-accent), transparent);
+            margin: 0 auto 24px;
+            border-radius: 4px;
+            opacity: 0.8;
+        }
+
+        .section-header p {
+            color: var(--color-silver);
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(184, 168, 138, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(184, 168, 138, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(184, 168, 138, 0);
+            }
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            padding: 12px 0;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-pure-white);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .nav-logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            margin-right: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-light-silver);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-pure-white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--color-pure-white);
+            transition: var(--transition-smooth);
+            display: block;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1.12);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0.40) 40%,
+                    rgba(0, 0, 0, 0.60) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1100px;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .hero-content .hero-label {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--color-pure-white);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .hero-content .hero-sub {
+            font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            color: var(--color-off-white);
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 0 30px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.45), transparent);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 18px 48px;
+            border-top: 1px solid rgba(184, 168, 138, 0.3);
+            border-bottom: 1px solid rgba(184, 168, 138, 0.3);
+            display: inline-block;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .hero-content .hero-sub::before,
+        .hero-content .hero-sub::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent));
+        }
+
+        .hero-content .hero-sub::before {
+            left: 0;
+            background: linear-gradient(90deg, transparent, var(--color-accent));
+        }
+
+        .hero-content .hero-sub::after {
+            right: 0;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 18px 54px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-black);
+            background: linear-gradient(135deg, var(--color-accent) 0%, #d4c4a8 50%, var(--color-accent) 100%);
+            background-size: 200% auto;
+            border: 2px solid var(--color-accent);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards, pulse-gold 2.5s infinite 2.2s;
+            box-shadow: 0 5px 20px rgba(184, 168, 138, 0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta:hover {
+            background-position: right center;
+            color: var(--color-black);
+            opacity: 1;
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(184, 168, 138, 0.45);
+            letter-spacing: 6px;
+            animation: none;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-silver);
+        }
+
+        .hero-scroll i {
+            color: var(--color-accent);
+            font-size: 1rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-4px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: var(--color-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--color-pure-white);
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .about-text p {
+            color: var(--color-silver);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-top: 4px;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--color-accent);
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.4;
+            transition: var(--transition-smooth);
+        }
+
+        .about-grid:hover .about-image::before {
+            top: -10px;
+            right: -10px;
+            opacity: 0.6;
+        }
+
+        /* ===== AMENITIES SECTION ===== */
+        .amenities {
+            background: var(--color-black);
+        }
+
+        .amenities-primary-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .amenity-card {
+            flex: 1 1 calc(33.333% - 24px);
+            min-width: 250px;
+            max-width: 350px;
+            background: linear-gradient(160deg, rgba(45, 45, 45, 0.7), rgba(26, 26, 26, 0.9));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .amenity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            transform: scaleX(0);
+            transition: var(--transition-smooth);
+        }
+
+        .amenity-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(184, 168, 138, 0.1);
+            border-color: rgba(184, 168, 138, 0.25);
+            background: linear-gradient(160deg, rgba(55, 55, 55, 0.8), rgba(36, 36, 36, 0.95));
+        }
+
+        .amenity-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(184, 168, 138, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .amenity-card:hover::after {
+            opacity: 1;
+        }
+
+        .amenity-card i,
+        .amenity-card h4 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .amenity-card i {
+            font-size: 2.2rem;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(184, 168, 138, 0.3));
+        }
+
+        .amenity-card:hover i {
+            transform: scale(1.25) translateY(-5px);
+            filter: drop-shadow(0 0 12px rgba(184, 168, 138, 0.6));
+        }
+
+        .amenity-card h4 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-off-white);
+            margin-top: 8px;
+        }
+
+        .amenity-label {
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-gray);
+        }
+
+        .amenities-free h3,
+        .amenities-extra h3 {
+            font-size: 1.3rem;
+            color: var(--color-pure-white);
+            margin-bottom: 32px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .amenities-free {
+            margin-bottom: 40px;
+        }
+
+        .paid-services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .paid-service-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .paid-service-item:hover {
+            background: rgba(184, 168, 138, 0.08);
+            border-color: rgba(184, 168, 138, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .paid-service-item i {
+            color: var(--color-accent);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .paid-service-item span {
+            font-size: 0.85rem;
+            color: var(--color-silver);
+            font-weight: 400;
+        }
+
+        /* ===== INFO SECTION ===== */
+        .info {
+            background: var(--color-dark);
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, rgba(45, 45, 45, 0.6), rgba(26, 26, 26, 0.8));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 48px 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(184, 168, 138, 0.3);
+            background: linear-gradient(145deg, rgba(55, 55, 55, 0.7), rgba(36, 36, 36, 0.9));
+        }
+
+        .info-card i {
+            font-size: 2.8rem;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 10px rgba(184, 168, 138, 0.2));
+            display: inline-block;
+        }
+
+        .info-card:hover i {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(184, 168, 138, 0.5));
+        }
+
+        .info-card h3 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-silver);
+            margin-bottom: 12px;
+        }
+
+        .info-card .time {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-pure-white);
+            letter-spacing: 2px;
+        }
+
+        .info-note {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px;
+            background: rgba(184, 168, 138, 0.08);
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .info-note p {
+            color: var(--color-silver);
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .info-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-detail-card {
+            display: flex;
+            gap: 20px;
+            padding: 28px;
+            background: linear-gradient(160deg, rgba(45, 45, 45, 0.4), rgba(26, 26, 26, 0.6));
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            transition: var(--transition-smooth);
+        }
+
+        .info-detail-card:hover {
+            border-color: rgba(184, 168, 138, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-detail-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(184, 168, 138, 0.1);
+            border-radius: 10px;
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+
+        .info-detail-content h4 {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-pure-white);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .info-detail-content p {
+            font-size: 0.82rem;
+            color: var(--color-gray);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .info-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== PARALLAX DIVIDER ===== */
+        .parallax-divider {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-divider img {
+            position: absolute;
+            inset: -20%;
+            width: 140%;
+            height: 140%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        .parallax-divider .parallax-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(0, 0, 0, 0.65) 100%);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .parallax-divider .parallax-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .parallax-divider .parallax-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--color-pure-white);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .parallax-divider .parallax-text p {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* ===== GALLERY / ROOMS SECTION ===== */
+        .gallery {
+            background: var(--color-black);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .room-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .room-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            pointer-events: none;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 2;
+        }
+
+        .room-card:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(184, 168, 138, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            z-index: 10;
+        }
+
+        .room-card:hover::after {
+            border-color: rgba(184, 168, 138, 0.6);
+            border-width: 2px;
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 0;
+        }
+
+        .room-card:hover img {
+            transform: scale(1.15);
+        }
+
+        .room-card .room-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 16px 20px;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.95) 75%);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--color-pure-white);
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                color 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                letter-spacing 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: bottom center;
+            z-index: 3;
+            opacity: 1;
+        }
+
+        .room-card:hover .room-label {
+            transform: scale(1.15);
+            letter-spacing: 4px;
+            color: var(--color-accent);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* ===== RESTAURANT SECTION ===== */
+        .restaurant-section {
+            background: var(--color-dark);
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .restaurant-grid .gallery-item.full-width {
+            grid-column: span 2;
+            aspect-ratio: 21/8;
+        }
+
+        /* ===== STREET VIEW ===== */
+        .street-view-container {
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .street-view-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+
+        .street-view-label {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            z-index: 2;
+        }
+
+        /* ===== PHOTO BAND / AMBIANCE ===== */
+        .photo-band {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .photo-band .band-item {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-band .band-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-band .band-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ===== SIDE VIEW IMAGE (CONTACT) ===== */
+        .contact-hero-img {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            transform: translateY(-6px);
+        }
+
+        .gallery-item:hover::after {
+            border-color: rgba(184, 168, 138, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay span {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--color-pure-white);
+            letter-spacing: 1px;
+        }
+
+        .gallery-item.restaurant-item {
+            grid-column: span 2;
+            aspect-ratio: 21/9;
+        }
+
+        /* ===== SCROLL SLIDE ANIMATIONS ===== */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        /* Staggered card animations */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--color-dark);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--color-pure-white);
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding: 24px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item:hover {
+            border-color: rgba(184, 168, 138, 0.25);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(184, 168, 138, 0.3);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item-text h4 {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 6px;
+        }
+
+        .contact-item-text p {
+            color: var(--color-off-white);
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        .contact-item-text a {
+            color: var(--color-accent);
+        }
+
+        .contact-item-text a:hover {
+            color: var(--color-pure-white);
+        }
+
+        .contact-map {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-map:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            border-color: rgba(184, 168, 138, 0.3);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 420px;
+            border: none;
+            filter: grayscale(0.8) brightness(0.85) contrast(1.1);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-map:hover iframe {
+            filter: grayscale(0.3) brightness(0.9) contrast(1.05);
+        }
+
+        .contact-map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-map-overlay span {
+            font-size: 0.8rem;
+            color: var(--color-silver);
+            font-weight: 300;
+        }
+
+        .map-link {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-link:hover {
+            color: var(--color-pure-white);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-pure-white);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo span {
+            color: var(--color-accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--color-silver);
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .social-links a:hover {
+            border-color: var(--color-accent);
+            background: var(--color-accent);
+            color: var(--color-black);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(184, 168, 138, 0.2);
+        }
+
+        .social-links a.text-icon {
+            width: auto;
+            border-radius: 20px;
+            padding: 0 12px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: var(--color-gray);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .restaurant-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .restaurant-grid .gallery-item.full-width {
+                grid-column: span 2;
+                aspect-ratio: 16/7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background: rgba(20, 20, 20, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 28px;
+                transition: var(--transition-smooth);
+                padding: 40px;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid,
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.restaurant-item {
+                grid-column: span 1;
+            }
+
+            .restaurant-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .restaurant-grid .gallery-item.full-width {
+                grid-column: span 1;
+            }
+
+            .street-view-container iframe {
+                height: 250px;
+            }
+
+            .contact-hero-img {
+                height: 200px;
+            }
+
+            .about-stats {
+                gap: 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .amenities-primary-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .btn-cta {
+                padding: 14px 32px;
+                font-size: 0.75rem;
+            }
+
+            .about-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .amenities-primary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .extra-list {
+                grid-template-columns: 1fr;
+            }
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== MOBILE OVERLAY BG ===== */
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== SIDE KIRPIK DECORATIONS ===== */
+        .kirpik-decoration {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            width: 180px;
+            height: auto;
+        }
+
+        .kirpik-decoration.visible {
+            opacity: 0.4;
+        }
+
+        .kirpik-sol {
+            left: 0;
+        }
+
+        .kirpik-sag {
+            right: 0;
+        }
+
+        .kirpik-decoration img {
+            width: 100%;
+            height: auto;
+            filter: brightness(0.8) sepia(0.2);
+        }
+
+        @media (max-width: 1200px) {
+            .kirpik-decoration {
+                width: 130px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kirpik-decoration {
+                display: none;
+            }
+        }
+
+        /* ===== PLATFORM LOGO LINKS ===== */
+        .platform-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .platform-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.02);
+            height: 56px;
+            min-width: 140px;
+        }
+
+        .platform-link:hover {
+            border-color: var(--color-accent);
+            background: rgba(184, 168, 138, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(184, 168, 138, 0.12);
+        }
+
+        .platform-link img {
+            height: 32px;
+            width: auto;
+            opacity: 0.8;
+            transition: var(--transition-smooth);
+        }
+
+        .platform-link:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .platform-link.booking-link {
+            border-style: dashed;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .platform-link.booking-link:hover {
+            opacity: 0.8;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent), var(--color-pure-white));
+            z-index: 9999;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(184, 168, 138, 0.5);
+        }
+
+        /* ===== FILM GRAIN OVERLAY ===== */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 128px 128px;
+        }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--color-black);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-pure-white);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            animation: preloaderPulse 1.5s ease-in-out infinite;
+        }
+
+        .preloader-logo span {
+            color: #ff3333;
+        }
+
+        .preloader-bar {
+            width: 120px;
+            height: 2px;
+            background: var(--color-charcoal);
+            margin-top: 24px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .preloader-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: var(--color-accent);
+            border-radius: 2px;
+            animation: preloaderSlide 1s ease-in-out infinite;
+        }
+
+        @keyframes preloaderPulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes preloaderSlide {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(350%);
+            }
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 50px;
+            height: 50px;
+            background: rgba(184, 168, 138, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(184, 168, 138, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--color-accent);
+            color: var(--color-black);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(184, 168, 138, 0.3);
+        }
+
+        /* ===== CURSOR GLOW ===== */
+        .cursor-glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 168, 138, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 4;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .cursor-glow.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .cursor-glow {
+                display: none;
+            }
+        }
+
+        /* ===== 3D TILT EFFECT ===== */
+        .room-card.tilt-active {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* ===== COUNTER ANIMATION ===== */
+        .stat-number {
+            display: inline-block;
+        }
+
+        /* ===== FOOTER REDESIGN ===== */
+        .footer {
+            background: linear-gradient(180deg, var(--color-dark) 0%, var(--color-black) 100%);
+            border-top: 1px solid rgba(184, 168, 138, 0.1);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 168, 138, 0.2), transparent);
+            margin: 8px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: var(--color-gray);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">THE GREY <span>HOTEL</span></div>
+        <div class="preloader-bar"></div>
+    </div>
+
+    <!-- ===== SCROLL PROGRESS BAR ===== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== FILM GRAIN OVERLAY ===== -->
+    <div class="grain-overlay"></div>
+
+    <!-- ===== CURSOR GLOW ===== -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" id="backToTop" aria-label="Sayfanın başına dön">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- ===== SIDE KIRPIK DECORATIONS ===== -->
+    <div class="kirpik-decoration kirpik-sol" id="kirpikSol">
+        <img src="images/logo.sol.kirpik.png" alt="Dekoratif eleman">
+    </div>
+    <div class="kirpik-decoration kirpik-sag" id="kirpikSag">
+        <img src="images/logo.sag.kirpik.png" alt="Dekoratif eleman">
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="images/logo2.png" alt="The Grey Hotel Logo" class="nav-logo-img">
+                THE GREY <span style="color: #ff3333; margin-left: 8px;">HOTEL</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-nav>Hakkımızda</a></li>
+                <li><a href="#amenities" data-nav>Olanaklar</a></li>
+                <li><a href="#rooms" data-nav>Odalar</a></li>
+                <li><a href="#restaurant" data-nav>Restoran</a></li>
+                <li><a href="#info" data-nav>Bilgiler</a></li>
+                <li><a href="#contact" data-nav>İletişim</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="images/hero.jpeg" alt="The Grey Hotel dış cephe gece görünümü">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-label">Sakarya &mdash; Serdivan</p>
+            <h1>The Grey Hotel'e<br>Hoş Geldiniz</h1>
+            <p class="hero-sub">Sakarya'nın Kalbinde Şıklık ve Konforun Buluşma Noktası</p>
+            <a href="#contact" class="btn-cta">Hemen Rezervasyon Yap</a>
+        </div>
+        <div class="hero-scroll">
+            <span>Keşfet</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <div class="section-divider" style="margin: 0 0 20px 0;"></div>
+                    <h3>Hakkımızda</h3>
+                    <p>
+                        Sakarya'ın keyif veren ortamında bulunmak isteyenler için oldukça uygun bir seçenek olan
+                        The Grey Hotel, hem aileler için hem de iş amaçlı gelecekler için idealdir. Günlük hayatın
+                        yoğunluğundan ve stresinden kurtulmak isteyenler için en uygun tercihlerden biridir.
+                    </p>
+                    <p>
+                        Klima, düz ekran TV, kablosuz internet bağlantısı ve bebek koltuğuyla konforlu odalarında
+                        misafirlerini ağırlayan The Grey Hotel; delüks, superior ve premium oda seçenekleriyle
+                        dikkatleri üzerine çekiyor. Balayı konseptiyle farklılığını konuşturan otel, göze hitap eden
+                        kaliteli mimariye sahip odalarıyla eğlenceli ve huzurlu dakikalar vaat ediyor.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">87 km</div>
+                            <div class="stat-label">Havalimanı</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3.3 km</div>
+                            <div class="stat-label">Terminal</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">17 km</div>
+                            <div class="stat-label">Sapanca Gölü</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Resepsiyon</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal-right">
+                    <img src="images/lobby.jpeg" alt="The Grey Hotel lobi alanı">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AMENITIES SECTION ===== -->
+    <section class="section amenities" id="amenities">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Otel Olanakları</h2>
+                <div class="section-divider"></div>
+                <p>Konforunuz için her detayı düşündük</p>
+            </div>
+
+            <div class="amenities-free reveal">
+                <h3>Ücretsiz Hizmetler</h3>
+                <div class="amenities-primary-grid">
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Kablosuz İnternet</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-parking"></i>
+                        <h4>Otopark</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-snowflake"></i>
+                        <h4>Klima</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-fire"></i>
+                        <h4>Isıtma</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-broom"></i>
+                        <h4>Günlük Temizlik</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h4>24 Saat Resepsiyon</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-bell"></i>
+                        <h4>Oda Servisi</h4>
+                    </div>
+                    <div class="amenity-card stagger-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>Emanet Kasası</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="amenities-extra reveal">
+                <h3>Ücretli Hizmetler</h3>
+                <div class="paid-services-grid">
+                    <div class="paid-service-item">
+                        <i class="fas fa-coffee"></i>
+                        <span>Kahvaltı</span>
+                    </div>
+                    <div class="paid-service-item">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Kuru Temizleme</span>
+                    </div>
+                    <div class="paid-service-item">
+                        <i class="fas fa-steam"></i>
+                        <span>Ütü Servisi</span>
+                    </div>
+                    <div class="paid-service-item">
+                        <i class="fas fa-soap"></i>
+                        <span>Çamaşırhane</span>
+                    </div>
+                    <div class="paid-service-item">
+                        <i class="fas fa-fax"></i>
+                        <span>Faks / Fotokopi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== IMPORTANT INFO SECTION ===== -->
+    <section class="section info" id="info">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Önemli Bilgiler</h2>
+                <div class="section-divider"></div>
+                <p>Konaklamamız için bilmeniz gerekenler</p>
+            </div>
+
+            <div class="info-cards reveal">
+                <div class="info-card">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <h3>Giriş Saati</h3>
+                    <div class="time">14:00</div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <h3>Çıkış Saati</h3>
+                    <div class="time">12:00</div>
+                </div>
+            </div>
+
+            <div class="info-details reveal">
+                <div class="info-detail-card">
+                    <div class="info-detail-icon"><i class="fas fa-info-circle"></i></div>
+                    <div class="info-detail-content">
+                        <h4>Konaklama Bilgileri</h4>
+                        <p>The Grey Hotel odalarına giriş, saat 14.00'ten itibaren başlıyor. Odalardan çıkış saati ise
+                            en geç 12.00'dir. Oda Kahvaltı konaklamalar çıkış günü sabah kahvaltısı ile son bulur.</p>
+                    </div>
+                </div>
+                <div class="info-detail-card">
+                    <div class="info-detail-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="info-detail-content">
+                        <h4>Depozito Bilgileri</h4>
+                        <p>Giriş işlemlerinde tesisin belirlediği miktarda depozito, kredi kartından provizyon olarak
+                            alınabilir veya nakit talep edilebilir. Ekstra harcamalar veya misafir kaynaklı maddi
+                            zararlar bu depozitodan kesilir. Harcama yapılmazsa çıkış günü iade edilir.</p>
+                    </div>
+                </div>
+                <div class="info-detail-card">
+                    <div class="info-detail-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="info-detail-content">
+                        <h4>Önemli Uyarılar</h4>
+                        <p>Planlı altyapı çalışmaları, bakım-onarım faaliyetleri kapsamında yaşanabilecek su, elektrik
+                            gibi hizmet kesintileri tesisin kontrolü dışındadır. Doğal afetler ve olumsuz hava koşulları
+                            nedeniyle iptal veya tazminat talep edilemez.</p>
+                    </div>
+                </div>
+                <div class="info-detail-card">
+                    <div class="info-detail-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="info-detail-content">
+                        <h4>Rezervasyon Sorumluluğu</h4>
+                        <p>Rezervasyonu yapan kişi otelde konaklayacak tüm kişilerin isimlerini doğru girmekle
+                            yükümlüdür. E-posta adresi ve transferler için cep telefonu numarasının doğru girildiğinden
+                            emin olmak kişinin sorumluluğundadır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARALLAX DIVIDER 1 ===== -->
+    <div class="parallax-divider" data-parallax>
+        <img src="images/tabela.jpg" alt="The Grey Hotel Tabela" data-parallax-img>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-text">
+            <h2>Eşsiz Bir Deneyim</h2>
+            <p>Konfor &bull; Şıklık &bull; Huzur</p>
+        </div>
+    </div>
+
+    <!-- ===== GALLERY / ROOMS SECTION ===== -->
+    <section class="section gallery" id="rooms">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Odalarımız</h2>
+                <div class="section-divider"></div>
+                <p>Konfor ve şıklığın kusursuz birleşimi</p>
+            </div>
+
+            <div class="rooms-grid">
+                <div class="room-card reveal-left">
+                    <img src="images/oda_cift_tek_yatak.jpeg" alt="Deluxe Oda">
+                    <div class="room-label">Deluxe Oda</div>
+                </div>
+                <div class="room-card reveal-right">
+                    <img src="images/oda_cift_yatak.jpeg" alt="Premium Oda">
+                    <div class="room-label">Premium Oda</div>
+                </div>
+                <div class="room-card reveal-left">
+                    <img src="images/oda_cift_tek_yatak2.jpeg" alt="Standart Oda">
+                    <div class="room-label">Standart Oda</div>
+                </div>
+                <div class="room-card reveal-right">
+                    <img src="images/oda_cift_tek_yatak3.jpeg" alt="Superior Oda">
+                    <div class="room-label">Superior Oda</div>
+                </div>
+                <div class="room-card reveal-left">
+                    <img src="images/oda_gunduz.jpg" alt="Deluxe Oda, Şehir Manzaralı">
+                    <div class="room-label">Deluxe Oda, Şehir Manzaralı</div>
+                </div>
+                <div class="room-card reveal-right">
+                    <img src="images/oda_oturma.jpg" alt="Standart Oda, Manzaralı">
+                    <div class="room-label">Standart Oda, Manzaralı</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARALLAX DIVIDER 2 ===== -->
+    <div class="parallax-divider" data-parallax>
+        <img src="images/ambiyans2.jpeg" alt="The Grey Hotel" data-parallax-img>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-text">
+            <h2>Lezzet & Keyif</h2>
+            <p>Özenle Hazırlanmış Tatlar</p>
+        </div>
+    </div>
+
+    <!-- ===== RESTAURANT SECTION ===== -->
+    <section class="section restaurant-section" id="restaurant">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Restoran & Kafe</h2>
+                <div class="section-divider"></div>
+                <p>Leziz mutfağımız ve eşsiz ambiyansımızla sizi ağırlıyoruz</p>
+            </div>
+
+            <div class="restaurant-grid">
+                <div class="gallery-item reveal-left">
+                    <img src="images/restoran3.jpeg" alt="The Grey Hotel - Restoran">
+                </div>
+                <div class="gallery-item reveal-right">
+                    <img src="images/restoran1.jpeg" alt="The Grey Hotel - Kafe">
+                </div>
+                <div class="gallery-item reveal-left">
+                    <img src="images/kahvalti.jpg" alt="The Grey Hotel - Kahvaltı">
+                </div>
+                <div class="gallery-item reveal-right">
+                    <img src="images/restoran2.jpeg" alt="The Grey Hotel - Restoran İç Mekan">
+                </div>
+                <div class="gallery-item full-width reveal-scale">
+                    <img src="images/restoran4.jpeg" alt="The Grey Hotel - Bar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>İletişim &amp; Konum</h2>
+                <div class="section-divider"></div>
+                <p>Bize ulaşın veya doğrudan yolumuzu bulun</p>
+            </div>
+
+            <!-- Hotel Side View -->
+            <div class="contact-hero-img reveal">
+                <img src="images/otel_yan.jpeg" alt="The Grey Hotel - Yandan Görünüm">
+            </div>
+
+            <div class="contact-grid reveal">
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-text">
+                            <h4>Adres</h4>
+                            <p>Kemalpaşa, Üniversite Cd. no:64,<br>54050 Serdivan/Sakarya</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="contact-item-text">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+902645031212">(0264) 503 12 12</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-item-text">
+                            <h4>E-Posta</h4>
+                            <p><a href="mailto:info@thegreyhotel.com">info@thegreyhotel.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1500!2d30.351982!3d40.749088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU2LjciTiAzMMKwMjEnMDcuMSJF!5e0!3m2!1str!2str!4v1709150000000!5m2!1str!2str"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="The Grey Hotel Konum">
+                    </iframe>
+                    <div class="contact-map-overlay">
+                        <span>Serdivan, Sakarya</span>
+                        <a href="https://www.google.com/maps?q=40.749088,30.351982" target="_blank"
+                            rel="noopener noreferrer" class="map-link">
+                            Google Maps'te Aç <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Street View -->
+            <div class="street-view-container reveal">
+                <div class="street-view-label"><i class="fas fa-street-view" style="margin-right: 6px;"></i> Street View
+                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!4v20260228!6m8!1m7!1sGUnrBB3ITtBakTgq2INKlg!2m2!1d40.7489988!2d30.3524779!3f277.63!4f-3.1!5f0.7820865974627469"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="The Grey Hotel Street View">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="font-size: 1.5rem; letter-spacing: 4px;">
+                    <img src="images/logo2.png" alt="The Grey Hotel Logo"
+                        style="height: 40px; width: auto; margin-right: 12px;">
+                    THE GREY <span style="color: #ff3333; margin-left: 6px;">HOTEL</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/thegreyhotels/" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="platform-links">
+                    <a href="https://www.trivago.com.tr/tr/oar/the-grey-hotel-adapazar%C4%B1?search=100-12005650"
+                        target="_blank" class="platform-link" aria-label="Trivago">
+                        <img src="images/trivago-logo.svg" alt="Trivago">
+                    </a>
+                    <a href="https://www.etstur.com/The-Grey-Hotel" target="_blank" class="platform-link"
+                        aria-label="ETS Tur">
+                        <img src="images/etstur-logo.svg" alt="ETS Tur">
+                    </a>
+                    <a href="#" class="platform-link booking-link" aria-label="Booking.com">
+                        <img src="images/booking-logo.svg" alt="Booking.com">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Grey Hotel. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== Sticky Navbar =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== Mobile Menu =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when a nav link is clicked
+        document.querySelectorAll('[data-nav]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // ===== Smooth Scroll for anchor links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = navbar.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Scroll Reveal Animations =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== Staggered Card Animations =====
+        const staggerItems = document.querySelectorAll('.stagger-item');
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Find all sibling stagger items in same parent
+                    const parent = entry.target.parentElement;
+                    const siblings = parent.querySelectorAll('.stagger-item');
+                    siblings.forEach((item, i) => {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, i * 120);
+                    });
+                    siblings.forEach(item => staggerObserver.unobserve(item));
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+        staggerItems.forEach(el => staggerObserver.observe(el));
+
+        // ===== Parallax Scroll Effect =====
+        const parallaxDividers = document.querySelectorAll('[data-parallax]');
+
+        function updateParallax() {
+            const scrollY = window.pageYOffset;
+            parallaxDividers.forEach(divider => {
+                const img = divider.querySelector('[data-parallax-img]');
+                if (img) {
+                    const rect = divider.getBoundingClientRect();
+                    const speed = 0.3;
+                    const yPos = (rect.top) * speed;
+                    img.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+
+            // Hero parallax
+            const heroBg = document.querySelector('.hero-bg img');
+            if (heroBg && scrollY < window.innerHeight) {
+                // Slower more elegant translation and scale for the premium look
+                heroBg.style.transform = `scale(${1.05 + scrollY * 0.0003}) translateY(${scrollY * 0.25}px)`;
+            }
+        }
+
+        window.addEventListener('scroll', updateParallax, { passive: true });
+
+        // ===== Active Nav Link on Scroll =====
+        const sections = document.querySelectorAll('section[id]');
+
+        function setActiveLink() {
+            const scrollY = window.pageYOffset;
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+
+                if (navLink) {
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLink.style.color = 'var(--color-pure-white)';
+                    } else {
+                        navLink.style.color = '';
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+
+        // ===== Kirpik Side Decorations Scroll Effect =====
+        const kirpikSol = document.getElementById('kirpikSol');
+        const kirpikSag = document.getElementById('kirpikSag');
+        let lastKirpikSection = -1;
+
+        function updateKirpikVisibility() {
+            const scrollY = window.pageYOffset;
+            const windowH = window.innerHeight;
+            const docH = document.documentElement.scrollHeight;
+            const scrollPercent = scrollY / (docH - windowH);
+
+            // Show kirpik decorations only in the middle sections (not at very top or very bottom)
+            const inRange = scrollY > windowH * 0.5 && scrollPercent < 0.9;
+
+            // Alternate which side is visible based on scroll position
+            const sectionIndex = Math.floor(scrollY / (windowH * 0.8));
+
+            if (inRange) {
+                if (sectionIndex % 2 === 0) {
+                    kirpikSol.classList.add('visible');
+                    kirpikSag.classList.remove('visible');
+                } else {
+                    kirpikSol.classList.remove('visible');
+                    kirpikSag.classList.add('visible');
+                }
+            } else {
+                kirpikSol.classList.remove('visible');
+                kirpikSag.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', updateKirpikVisibility, { passive: true });
+
+        // ===== PRELOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('loaded');
+            }, 800);
+        });
+
+        // ===== SCROLL PROGRESS BAR =====
+        const scrollProgress = document.getElementById('scrollProgress');
+        function updateScrollProgress() {
+            const scrollY = window.pageYOffset;
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollY / docH) * 100;
+            scrollProgress.style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+        // ===== BACK TO TOP BUTTON =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== CURSOR GLOW SPOTLIGHT =====
+        const cursorGlow = document.getElementById('cursorGlow');
+        let mouseTimeout;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+            cursorGlow.classList.add('active');
+            clearTimeout(mouseTimeout);
+            mouseTimeout = setTimeout(() => {
+                cursorGlow.classList.remove('active');
+            }, 3000);
+        });
+
+        document.addEventListener('mouseleave', () => {
+            cursorGlow.classList.remove('active');
+        });
+
+        // ===== COUNTER ANIMATION FOR STATS =====
+        function animateCounter(el, target, suffix) {
+            let current = 0;
+            const isFloat = target % 1 !== 0;
+            const increment = target / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+            }, 20);
+        }
+
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const text = el.textContent.trim();
+                    // Parse numbers like "87 km", "3.3 km", "17 km", "24/7"
+                    if (text === '24/7') {
+                        // Don't animate 24/7, just leave it
+                        return;
+                    }
+                    const match = text.match(/([\d.]+)\s*(.*)/);
+                    if (match) {
+                        const num = parseFloat(match[1]);
+                        const suffix = ' ' + match[2];
+                        el.textContent = '0' + suffix;
+                        animateCounter(el, num, suffix);
+                    }
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(el => counterObserver.observe(el));
+
+        // ===== 3D TILT EFFECT ON ROOM CARDS =====
+        const roomCards = document.querySelectorAll('.room-card');
+
+        roomCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -6;
+                const rotateY = ((x - centerX) / centerX) * 6;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+
+        // ===== SMOOTH TEXT FADE FOR SECTION HEADERS =====
+        const sectionHeaders = document.querySelectorAll('.section-header h2');
+        sectionHeaders.forEach(header => {
+            const text = header.textContent;
+            header.innerHTML = '';
+            text.split('').forEach((char, i) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.opacity = '0';
+                span.style.display = 'inline-block';
+                span.style.transform = 'translateY(20px)';
+                span.style.transition = `all 0.4s ease ${i * 0.03}s`;
+                header.appendChild(span);
+            });
+        });
+
+        const headerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const spans = entry.target.querySelectorAll('span');
+                    spans.forEach(span => {
+                        span.style.opacity = '1';
+                        span.style.transform = 'translateY(0)';
+                    });
+                    headerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sectionHeaders.forEach(h => headerObserver.observe(h));
+
+        // ===== REVEAL SCALE ANIMATION =====
+        const revealScaleEls = document.querySelectorAll('.reveal-scale');
+        const revealScaleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1) translateY(0)';
+                    revealScaleObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        revealScaleEls.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'scale(0.95) translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            revealScaleObserver.observe(el);
+        });
+
+        // ===== FLOATING PARTICLES IN HERO =====
+        (function createHeroParticles() {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            const particleContainer = document.createElement('div');
+            particleContainer.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;';
+            hero.appendChild(particleContainer);
+
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                const opacity = Math.random() * 0.4 + 0.1;
+                p.style.cssText = `
+                    position: absolute;
+                    bottom: -10px;
+                    left: ${x}%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: radial-gradient(circle, rgba(184,168,138,${opacity}), transparent);
+                    border-radius: 50%;
+                    animation: floatParticle ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                particleContainer.appendChild(p);
+            }
+
+            // Add keyframe if not exists
+            if (!document.getElementById('particleKeyframes')) {
+                const style = document.createElement('style');
+                style.id = 'particleKeyframes';
+                style.textContent = `
+                    @keyframes floatParticle {
+                        0% { transform: translateY(0) translateX(0); opacity: 0; }
+                        10% { opacity: 1; }
+                        90% { opacity: 1; }
+                        100% { transform: translateY(-100vh) translateX(${Math.random() > 0.5 ? '' : '-'}40px); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        })();
+
+        // ===== MAGNETIC HOVER ON CTA BUTTON =====
+        const ctaBtn = document.querySelector('.btn-cta');
+        if (ctaBtn) {
+            ctaBtn.addEventListener('mousemove', (e) => {
+                const rect = ctaBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                ctaBtn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+            ctaBtn.addEventListener('mouseleave', () => {
+                ctaBtn.style.transform = '';
+            });
+        }
+
+        // ===== SMOOTH SCROLL FOR ALL ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== IMAGE HOVER ZOOM ON GALLERY =====
+        document.querySelectorAll('.gallery-item img, .about-image img, .contact-hero-img img').forEach(img => {
+            img.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            img.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.06)';
+            });
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
+
+        // ===== TYPEWRITER EFFECT FOR HERO LABEL =====
+        (function typewriterLabel() {
+            const label = document.querySelector('.hero-label');
+            if (!label) return;
+            const text = label.textContent;
+            label.textContent = '';
+            label.style.opacity = '1';
+            label.style.borderRight = '2px solid var(--color-accent)';
+            label.style.animation = 'none';
+
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    label.textContent += text[i];
+                    i++;
+                    setTimeout(type, 80);
+                } else {
+                    // Remove cursor after typing
+                    setTimeout(() => {
+                        label.style.borderRight = 'none';
+                    }, 1500);
+                }
+            }
+            setTimeout(type, 500);
+        })();
+
+        // ===== STAGGERED AMENITY CARD REVEAL =====
+        const amenityCards = document.querySelectorAll('.amenity-card');
+        const amenityObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.parentElement.querySelectorAll('.amenity-card');
+                    cards.forEach((card, i) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, i * 100);
+                    });
+                    amenityObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        if (amenityCards.length > 0) {
+            amenityObserver.observe(amenityCards[0].parentElement);
+        }
+
+        // ===== HERO PARALLAX MOUSE MOVEMENT =====
+        const heroSection = document.querySelector('.hero');
+        const heroBg = document.querySelector('.hero-bg img');
+        if (heroSection && heroBg) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                heroBg.style.transform = `scale(1.08) translate(${x * -15}px, ${y * -15}px)`;
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                heroBg.style.transition = 'transform 0.6s ease';
+                heroBg.style.transform = 'scale(1.05)';
+                setTimeout(() => { heroBg.style.transition = ''; }, 600);
+            });
+        }
+
+        // ===== INFO DETAIL CARDS STAGGER =====
+        const infoDetailCards = document.querySelectorAll('.info-detail-card');
+        const infoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.info-detail-card');
+                    cards.forEach((card, i) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, i * 150);
+                    });
+                    infoObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const infoDetails = document.querySelector('.info-details');
+        if (infoDetails) infoObserver.observe(infoDetails);
+
+        // ===== NAVBAR ACTIVE STATE ON SCROLL =====
+        const allSections = document.querySelectorAll('section[id]');
+        const allNavLinks = document.querySelectorAll('[data-nav]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            allSections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            allNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
