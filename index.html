@@ -1459,7 +1459,15 @@
 
         @media (max-width: 768px) {
             .section {
-                padding: 70px 0;
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .section-header h2 {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
             }
 
             .nav-links {
@@ -1516,7 +1524,13 @@
             }
 
             .about-stats {
-                gap: 24px;
+                gap: 16px;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .stat-item .stat-number {
+                font-size: 2rem;
             }
 
             .footer-content {
@@ -1526,7 +1540,36 @@
             }
 
             .amenities-primary-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .amenity-card {
+                padding: 24px 16px;
+                min-width: unset;
+            }
+
+            .info-detail-card {
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px;
+            }
+
+            .info-detail-icon {
+                margin: 0 auto;
+            }
+
+            .info-detail-content {
+                text-align: center;
+            }
+
+            .hero-content {
+                padding: 0 16px;
+            }
+
+            .hero-content .hero-sub {
+                padding: 12px 24px;
+                font-size: clamp(0.8rem, 3vw, 1rem);
+                white-space: normal;
             }
         }
 
@@ -1542,11 +1585,25 @@
 
             .about-stats {
                 flex-wrap: wrap;
-                justify-content: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .stat-item {
+                flex: 1 1 40%;
             }
 
             .amenities-primary-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .paid-services-grid {
+                flex-direction: column;
+            }
+
+            .paid-service-item {
+                justify-content: center;
             }
 
             .extra-list {
@@ -1555,6 +1612,29 @@
 
             .rooms-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .parallax-divider {
+                height: 300px;
+            }
+
+            .parallax-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .platform-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .platform-link {
+                width: 100%;
             }
         }
 
