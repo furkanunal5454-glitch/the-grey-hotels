@@ -203,7 +203,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 24px;
+        }
+
+        .nav-left {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .nav-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 16px;
         }
 
         .logo {
@@ -227,6 +240,7 @@
         }
 
         .nav-links {
+            flex: 0 0 auto;
             display: flex;
             list-style: none;
             gap: 36px;
@@ -243,11 +257,7 @@
             padding: 4px 0;
         }
 
-        .nav-links li:last-child {
-            margin-left: 16px;
-        }
-
-        .nav-links a.nav-btn-cta {
+        .nav-btn-cta {
             padding: 10px 24px;
             font-size: 0.75rem;
             font-weight: 600;
@@ -260,14 +270,14 @@
             border-radius: 4px;
             transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
             display: inline-block;
+            text-decoration: none;
         }
 
-        .nav-links a.nav-btn-cta::after {
+        .nav-btn-cta::after {
             display: none;
-            /* Hide the underline effect for the button */
         }
 
-        .nav-links a.nav-btn-cta:hover {
+        .nav-btn-cta:hover {
             background-color: var(--color-accent);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(184, 168, 138, 0.3);
@@ -1503,7 +1513,7 @@
                 font-size: 0.75rem;
             }
 
-            .nav-links a.nav-btn-cta {
+            .nav-btn-cta {
                 padding: 8px 16px;
             }
         }
@@ -1548,6 +1558,31 @@
 
             .section-header h2 {
                 font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            .nav-left {
+                flex: auto;
+            }
+
+            .nav-right {
+                flex: auto;
+                gap: 12px;
+            }
+
+            .nav-btn-cta {
+                padding: 6px 12px;
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+                letter-spacing: 1.5px;
+            }
+
+            .nav-logo-img {
+                height: 32px;
+                margin-right: 6px;
             }
 
             .nav-links {
@@ -2074,10 +2109,12 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#hero" class="logo">
-                <img src="images/logo2.webp" alt="The Grey Hotel Logo" class="nav-logo-img">
-                THE GREY <span style="color: #ff3333; margin-left: 8px;">HOTEL</span>
-            </a>
+            <div class="nav-left">
+                <a href="#hero" class="logo">
+                    <img src="images/logo2.webp" alt="The Grey Hotel Logo" class="nav-logo-img">
+                    THE GREY <span style="color: #ff3333; margin-left: 8px;">HOTEL</span>
+                </a>
+            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" data-nav>Hakkımızda</a></li>
                 <li><a href="#amenities" data-nav>Olanaklar</a></li>
@@ -2085,13 +2122,15 @@
                 <li><a href="#restaurant" data-nav>Restoran</a></li>
                 <li><a href="#info" data-nav>Bilgiler</a></li>
                 <li><a href="#contact" data-nav>İletişim</a></li>
-                <li><a href="#contact" class="nav-btn-cta">Rezervasyon</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right">
+                <a href="#contact" class="nav-btn-cta">Rezervasyon</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç/kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -3055,6 +3094,50 @@
 
                 eggTimer = setTimeout(() => { eggClicks = 0; }, 2000);
             });
+        }
+
+        // ===== SECOND EASTER EGG =====
+        const premiumOda = Array.from(document.querySelectorAll('.room-label')).find(el => el.textContent.includes('Premium Oda'));
+        if (premiumOda) {
+            const triggerCard2 = premiumOda.closest('.room-card');
+            if (triggerCard2) {
+                let egg2Active = false;
+                let keysPressed2 = '';
+
+                triggerCard2.addEventListener('click', () => {
+                    egg2Active = true;
+                    keysPressed2 = '';
+
+                    const keyHandler2 = (e) => {
+                        if (!egg2Active) return;
+                        keysPressed2 += e.key.toLowerCase();
+                        if (keysPressed2.length > 10) keysPressed2 = keysPressed2.slice(-10);
+
+                        if (keysPressed2 === 'furkanunal') {
+                            let overlay = document.getElementById('furkan-overlay');
+                            if (!overlay) {
+                                overlay = document.createElement('div');
+                                overlay.id = 'furkan-overlay';
+                                overlay.style.cssText = 'position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);';
+                                overlay.innerHTML = `
+                                    <img src="images/easter.egg.png" alt="Easter Egg" style="max-width: 90%; max-height: 90vh; object-fit: contain; animation: fadeInUp 0.8s ease;">
+                                    <button style="position: absolute; top: 30px; right: 30px; background: none; border: none; color: white; font-size: 3rem; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2) rotate(90deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'" onclick="document.getElementById('furkan-overlay').style.display='none'">&times;</button>
+                                `;
+                                document.body.appendChild(overlay);
+                            }
+                            overlay.style.display = 'flex';
+                            egg2Active = false;
+                            window.removeEventListener('keydown', keyHandler2);
+                        }
+                    };
+                    window.addEventListener('keydown', keyHandler2);
+
+                    setTimeout(() => {
+                        egg2Active = false;
+                        window.removeEventListener('keydown', keyHandler2);
+                    }, 10000);
+                });
+            }
         }
     </script>
     <script type="application/ld+json">
